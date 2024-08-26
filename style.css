@@ -3,14 +3,16 @@ h1{
 }
 .container
 {
-    display: flex;
+    display: grid;
+    grid-template-columns: 120px 120px;
+    grid-template-rows: 120px 120px;
 }
 .btn{
     display:block;
     height: 100px;
     width : 100px;
+    border: 3px solid black;
     border-radius: 10px;
-    margin:10px;
 }
 #blue
 {
@@ -22,7 +24,7 @@ h1{
 }
 #red
 {
-    background-color: red;
+    background-color: rgb(255, 0, 0);
 }
 #green
 {
