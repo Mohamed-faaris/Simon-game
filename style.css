@@ -1,0 +1,30 @@
+h1{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container
+{
+    display: flex;
+}
+.btn{
+    display:block;
+    height: 100px;
+    width : 100px;
+    border-radius: 10px;
+    margin:10px;
+}
+#blue
+{
+    background-color: blue;
+}
+#yellow
+{
+    background-color: yellow;
+}
+#red
+{
+    background-color: red;
+}
+#green
+{
+    background-color: green;
+}
