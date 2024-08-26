@@ -9,7 +9,7 @@ function randomOf4()
 {
     return randomRange(1,5)
 }
-function colortonum(color)
+function colorToNum(color)
 {
     switch(color)
     {
@@ -42,12 +42,14 @@ class Game
         console.log(this.flow);
     }
         
-    userInput(num)
+    userInput(color)
     {
-        console.log(num,this.flow[this.current] === num);
-        if(this.flow[this.current] === num)
+        console.log(color,this.flow[this.current] === color);
+        if(this.flow[this.current] === colorToNum(color))
         {
             this.current+=1;
+            var a = new Audio("sounds/"+color+".mp3");
+            a.play();
             if(this.current==this.level) 
             {
                 this.levelUp();
@@ -55,6 +57,8 @@ class Game
         }
         else
         {
+            var a = new Audio("sounds/"+"wrong"+".mp3");
+            a.play();
             console.log("lost")
             this.flow = [];
             this.level = 0;
@@ -68,6 +72,5 @@ var game = new Game();
 game.levelUp();
 $("div.container div.btn").on("click",function(evt)
 {
-    num = colortonum(evt.target.id)
-    game.userInput(num);
+    game.userInput(evt.target.id);
 });
