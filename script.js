@@ -71,13 +71,12 @@ function numToColor(n)
         this.flow.push(r);
         this.level += 1;
         this.current = 0;
-        console.log(this.flow);
+        console.log(this.flow,this.level);
         $("h2").html("level "+this.level);
     }
         
     userInput(color)
     {
-        console.log(color,this.flow[this.current] === color);
         if(this.flow[this.current] === colorToNum(color))
         {
             this.current+=1;
@@ -92,7 +91,7 @@ function numToColor(n)
         {
             var a = new Audio("sounds/"+"wrong"+".mp3");
             a.play();
-            console.log("lost")
+            console.log(`lost at level ${this.level} at step ${this.current+1}`)
             this.flow = [];
             this.level = 0;
             this.current = 0;
