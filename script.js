@@ -24,6 +24,26 @@ function colorToNum(color)
     }
 }
 
+function numToColor(n)
+{
+    switch(n)
+    {
+        case 1:
+            return "blue";
+        case 2:
+            return "yellow";
+        case 3:
+            return "red";
+        case 4:
+            return "green";
+    }
+}
+
+function flash(color)
+{
+    $("#"+color).addClass("flash");
+    setTimeout(function(){$("#"+color).removeClass("flash");}, 150);
+}
 
 class Game
 {
@@ -36,10 +56,13 @@ class Game
         
     levelUp()
     {
-        this.flow.push(randomOf4());
+        var r = randomOf4();
+        flash(numToColor(r));
+        this.flow.push(r);
         this.level += 1;
         this.current = 0;
         console.log(this.flow);
+        
     }
         
     userInput(color)
@@ -48,11 +71,11 @@ class Game
         if(this.flow[this.current] === colorToNum(color))
         {
             this.current+=1;
-            var a = new Audio("sounds/"+color+".mp3");
+            var a = new Audio(`sounds/${color}.mp3`);
             a.play();
             if(this.current==this.level) 
             {
-                this.levelUp();
+                setTimeout(() => this.levelUp(), 300);
             }
         }
         else
@@ -72,5 +95,7 @@ var game = new Game();
 game.levelUp();
 $("div.container div.btn").on("click",function(evt)
 {
-    game.userInput(evt.target.id);
+    color = evt.target.id
+    game.userInput(color);
+    flash(color)
 });

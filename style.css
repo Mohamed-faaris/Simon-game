@@ -33,5 +33,5 @@ h1{
 
 .flash
 {
-    background-color: white;
+    background-color: white !important;
 }
