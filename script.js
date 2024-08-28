@@ -84,7 +84,7 @@ function numToColor(n)
             a.play();
             if(this.current==this.level) 
             {
-                setTimeout(() => this.levelUp(), 300);
+                setTimeout(() => this.levelUp(), 500);
             }
         }
         else
@@ -95,7 +95,7 @@ function numToColor(n)
             this.flow = [];
             this.level = 0;
             this.current = 0;
-            setTimeout(() => this.levelUp(), 300);
+            setTimeout(() => this.levelUp(), 500);
         }
     }
 }
